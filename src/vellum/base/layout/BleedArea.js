@@ -9,7 +9,7 @@ const BleedArea = ({children, color}) => (
 
 BleedArea.propTypes = {
     children: PropTypes.element,
-    color: PropTypes.color
+    color: PropTypes.string
 };
 
 export default BleedArea;

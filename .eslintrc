@@ -33,7 +33,6 @@
     "react/no-unknown-property": 1,
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 1,
-    "react/require-extension": 1,
     "react/self-closing-comp": 1,
     "react/sort-comp": [1, {
       "order": [
@@ -65,7 +64,6 @@
         ]
       }
     }],
-    "react/wrap-multilines": 1,
     "no-alert": 0,
     "no-array-constructor": 0,
     "no-bitwise": 1,
@@ -175,7 +173,7 @@
     "brace-style": [0, "1tbs"],
     "callback-return": 0,
     "camelcase": 0,
-    "comma-dangle": [1, "never"],
+    "comma-dangle": [0, "never"],
     "comma-spacing": 0,
     "comma-style": 0,
     "complexity": [0, 11],
