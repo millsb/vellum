@@ -1,8 +1,10 @@
+@import "../../styles/_grids.scss";
+
 $golden-width: 70vw;
 $golden-height: $golden-width / 1.618;
 
-.grid {
-  display: grid;
+.grid--interior {
+  @include grid-page--2-col();
 }
 
 .grid--golden {

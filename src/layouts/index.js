@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 
-import "./index.css";
+import "./_base.scss";
 
 const TemplateWrapper = ({children}) => (
     <div>
@@ -12,8 +12,12 @@ const TemplateWrapper = ({children}) => (
             meta={[
                 {name: "description", content: "Sample"},
                 {name: "keywords", content: "sample, something"}
-            ]}
-        />
+            ]}>
+
+            <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Roboto+Condensed:700" rel="stylesheet"></link>
+        </Helmet>
+
+        
         {children()}
     </div>
 );

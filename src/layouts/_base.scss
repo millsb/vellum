@@ -1,0 +1,8 @@
+@import "../vellum/styles/type";
+@import "../vellum/styles/colors";
+
+body {
+  font-family: font-family(base);
+  font-size: font-size(body);
+  color: color(black);
+}
