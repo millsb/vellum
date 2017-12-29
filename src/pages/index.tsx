@@ -1,40 +1,40 @@
-import BleedArea from "../vellum/structure/BleedArea";
-import Container from "../vellum/structure/Container";
-import {Grid, GridArea} from "../vellum/structure/grids";
-import {HorzNav, NavItems} from "../vellum/navigation";
-import Link from "gatsby-link";
+import {GridItem} from "../library/Grid";
 import * as React from "react";
 import {StatelessComponent} from "react";
+import {Hero} from "../library/Hero/Hero";
 
-const navItems: NavItems = [
-    {href: "#", label: "Values"},
-    {href: "#", label: "Design"},
-    {href: "#", label: "Develop"},
-    {href: "#", label: "Publish"},
-];
+export interface IndexPageProps {
+    data: {
+        heroImage?: any;
+    };
+}
 
-const IndexPage: StatelessComponent<any> = () => (
-    <BleedArea>
-        <Container>
-            <Grid name="interior">
-                <GridArea area={"header"}>
-                    <h1>Vellum</h1>
-                </GridArea>
-                <GridArea area={"navigation"}>
-                    <HorzNav items={navItems}/>
-                </GridArea>
-                <GridArea area={"content"}>
-                    <div>
-                        <p>Welcome to your new Gatsby site.</p>
-                    </div>
-                    <div>
-                        <p>Now go build something great.</p>
-                        <Link to="/page-2/">Go to page 2</Link>
-                    </div>
-                </GridArea>
-            </Grid>
-        </Container>
-    </BleedArea>
-);
+const IndexPage: StatelessComponent<IndexPageProps> = ({data}) => {
+    return (
+        <GridItem column={"bleed"}>
+            <Hero image={data.heroImage.sizes}/>
+        </GridItem>
+    );
+};
 
 export default IndexPage;
+
+export const query = graphql`
+  query IndexQuery {
+    heroImage: imageSharp(id: { regex: "/purple-neon.jpg/" }) {
+      sizes(
+        maxWidth: 1440
+        maxHeight: 400
+        cropFocus: CENTER
+        toFormat: PNG
+        duotone: {
+           highlight: "#f00e2e",
+           shadow: "#663399",
+           opacity: 65 
+        }
+      ) {
+        ... GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+  } 
+`;

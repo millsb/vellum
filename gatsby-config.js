@@ -10,10 +10,18 @@ module.exports = {
                 path: `${__dirname}/src/`,
             }
         },
+        {
+            resolve: `gatsby-transformer-yaml`,
+            options: {
+                path: "./src/data"
+            }
+        },
         `gatsby-plugin-typescript`,
         `gatsby-plugin-sass`,
         `gatsby-plugin-react-helmet`,
         `gatsby-transformer-remark`,
-        `gatsby-transformer-yaml`,
+        `gatsby-transformer-json`,
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`
     ]
 };

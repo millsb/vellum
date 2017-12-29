@@ -1,0 +1,41 @@
+@import "../../styles/colors";
+@import "../../styles/type";
+
+.hero {
+  background-repeat: no-repeat;
+}
+
+.hero__interior {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 1px 1px 32px color(purple, dark);
+
+  h1 {
+    color: color(white);
+    text-align: left;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: font-family(display);
+    font-size: font-size(display, hero);
+    background-color: rgba(color(purple, dark), 0.8);
+    padding: 8px 64px 8px 64px;
+    margin: 0;
+  }
+
+  h2 {
+    color: color(white);
+    text-align: left;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: font-family(heading);
+    font-size: font-size(display, heading);
+    background-color: rgba(color(purple, dark), 0.8);
+    padding: 32px 32px 16px 16px;
+    margin: 0;
+
+  }
+}
+

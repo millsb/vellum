@@ -1,0 +1,18 @@
+@mixin grid--standard {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: [bleed-start] minmax(0, 1fr)
+                         [main-start left-bar-start left-content-start] minmax(0, 14.25rem)
+                         [left-bar-end right-content-start] minmax(0, 14.25rem)
+                         minmax(0, 14.25rem)
+                         minmax(0, 14.25rem)
+                         [right-bar-start left-content-end] minmax(0, 14.25rem)
+                         [main-end right-bar-end right-content-end] minmax(0, 1fr)
+                         [bleed-end];
+}
+
+@mixin grid-item($column, $row) {
+  grid-column: $column;
+  grid-row: $row;
+}
+

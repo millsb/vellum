@@ -1,0 +1,31 @@
+@import "../../styles/type";
+@import "../../styles/colors";
+
+.horz-nav {
+}
+
+.horz-nav__list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 0;
+}
+
+.horz-nav__item {
+  font-size: font-size(body);
+  font-weight: 300;
+
+  a {
+    border-top: 2px solid transparent;
+    transition: border-top-color 0.25s ease-in, color 0.25s ease-in;
+    color: color(gray, light);
+
+    &:hover {
+      border-top-color: rebeccapurple;
+      color: color(black);
+    }
+  }
+
+}
+
+

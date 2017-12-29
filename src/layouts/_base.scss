@@ -1,8 +1,18 @@
-@import "../vellum/styles/type";
-@import "../vellum/styles/colors";
+@import "../styles/type";
+@import "../styles/colors";
 
 body {
   font-family: font-family(base);
   font-size: font-size(body);
   color: color(black);
+  margin: 0;
+}
+
+a {
+  color: color(gray, dark);
+}
+
+.wrapper {
+  border-top: 5px solid color(gray, lighter);
+  padding-top: 1rem;
 }

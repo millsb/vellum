@@ -4,6 +4,16 @@ $color-palette-data: (
   ),
   white: (
     base: #fff
+  ),
+  gray: (
+    lighter: #ccc,
+    light: #999,
+    base: #666,
+    dark: #444
+  ),
+  purple: (
+    dark: darken(#663399, 25%),
+    base: #663399
   )
 );
 

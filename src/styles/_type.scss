@@ -1,6 +1,6 @@
 @import '~modularscale-sass/stylesheets/modularscale';
 
-$base-font-size: 1rem;
+$base-font-size: 0.75rem;
 
 $modularscale: (
   base: $base-font-size,
@@ -8,8 +8,11 @@ $modularscale: (
 );
 
 $font-family-data: (
-  base: #{'Fira Sans', -apple-system, 'BlinkMacSystemFont', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif},
+  base: #{'Open Sans', -apple-system, 'BlinkMacSystemFont', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif},
+  logo: #{'Lobster', -apple-system, 'BlinkMacSystemFont', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif},
   heading: #{'Roboto Condensed', -apple-system, 'BlinkMacSystemFont', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif},
+  subheading: #{'RobotoCondensed', -apple-system, 'BlinkMacSystemFont', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif},
+  display: #{'Patua One', -apple-system, 'BlinkMacSystemFont', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif}
 );
 
 $font-size-data: (
@@ -20,7 +23,10 @@ $font-size-data: (
     base: ms(3)
   ),
   subheading: (
-    base: ms(4)
+    base: ms(2)
+  ),
+  display: (
+    hero: ms(4)
   )
 );
 
