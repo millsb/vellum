@@ -1,4 +1,4 @@
-import {GridItem} from "../library/Grid";
+import {Grid} from "../library/Grid";
 import * as React from "react";
 import {StatelessComponent} from "react";
 import {Hero} from "../library/Hero/Hero";
@@ -11,9 +11,20 @@ export interface IndexPageProps {
 
 const IndexPage: StatelessComponent<IndexPageProps> = ({data}) => {
     return (
-        <GridItem column={"bleed"}>
-            <Hero image={data.heroImage.sizes}/>
-        </GridItem>
+        <React.Fragment>
+            <Grid.Item column={"bleed"} row={"header"}>
+                <Hero image={data.heroImage.sizes}/>
+            </Grid.Item>
+            <Grid.Item column={"bleed"} row={"main"}>
+                <div style={{backgroundColor: "rebeccaPurple"}}>
+                    <Grid subgrid>
+                        <Grid.Item area={"main"}>
+                            <h1>Foo</h1>
+                        </Grid.Item>
+                    </Grid>
+                </div>
+            </Grid.Item>
+        </React.Fragment>
     );
 };
 

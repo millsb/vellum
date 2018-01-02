@@ -2,13 +2,26 @@
   display: grid;
   grid-gap: 20px;
   grid-template-columns: [bleed-start] minmax(0, 1fr)
-                         [main-start left-bar-start left-content-start] minmax(0, 14.25rem)
-                         [left-bar-end right-content-start] minmax(0, 14.25rem)
-                         minmax(0, 14.25rem)
-                         minmax(0, 14.25rem)
-                         [right-bar-start left-content-end] minmax(0, 14.25rem)
-                         [main-end right-bar-end right-content-end] minmax(0, 1fr)
+                         minmax(320px, 1140px)
+                         minmax(0, 1fr)
                          [bleed-end];
+
+  grid-template-rows: 400px
+                      minmax(500px, auto)
+                      180px;
+
+  grid-template-areas:  ". header ."
+                        ". main  ."
+                        ". footer .";
+
+}
+
+@mixin grid--subgrid {
+  display: grid;
+  grid-gap: inherit;
+  grid-template-columns: inherit;
+  grid-template-rows: inherit;
+  grid-template-areas: inherit;
 }
 
 @mixin grid-item($column, $row) {

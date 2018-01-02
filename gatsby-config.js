@@ -22,6 +22,7 @@ module.exports = {
         `gatsby-transformer-remark`,
         `gatsby-transformer-json`,
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`
+        `gatsby-plugin-sharp`,
+        `gatsby-plugin-react-next`
     ]
 };

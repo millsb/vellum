@@ -1,18 +1,43 @@
 import * as React from "react";
-import * as classnames from "classnames";
-import "./grid.scss";
-import {StatelessComponent} from "react";
+import {reject, isNil, merge} from "ramda";
+import {ReactChild, ReactElement, StatelessComponent} from "react";
 
-export interface GridItemProps {
-    children?: React.ReactNode;
-    column: string;
-    row?: string;
+export interface GridItemStyles {
+    gridColumn?: string;
+    gridRow?: string;
+    gridArea?: string;
 }
 
-export const GridItem: StatelessComponent<GridItemProps> = ({children, column, row}) => {
+export interface GridItemProps {
+    column?: string;
+    row?: string;
+    area?: string;
+}
+
+export const GridItem: StatelessComponent<GridItemProps> = ({children, row, column, area }) => {
+    const gridStyles: GridItemStyles = reject(isNil, {
+        gridArea: area,
+        gridColumn: column,
+        gridRow: row,
+    });
+
+    const renderChildren: any = () => {
+        return React.Children.map(children, (child: ReactChild) => {
+            if (typeof child !== "string") {
+                const elChild = child as ReactElement<any>;
+                const newStyles = merge(elChild.props.style, gridStyles);
+                return React.cloneElement(elChild, { style: newStyles});
+            } else {
+                return child;
+            }
+        });
+    };
+
     return (
-        <div className={classnames("grid__item")} style={{gridColumn: column, gridRow: row}}>
-            {children}
-        </div>
+        <React.Fragment>
+            {renderChildren()}
+        </React.Fragment>
     );
 };
+
+export default GridItem;

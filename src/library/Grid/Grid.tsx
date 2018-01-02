@@ -2,17 +2,25 @@ import "./grid.scss";
 import * as classnames from "classnames";
 import * as React from "react";
 import {StatelessComponent} from "react";
+import GridItem from "./GridItem";
 
 export interface GridProps {
-    children?: React.ReactNode;
-    name: string;
+    name?: string;
+    subgrid?: boolean;
 }
 
-export const Grid: StatelessComponent<GridProps> = ({name, children}) => {
-    const gridClass = classnames("grid", `grid--${name}`);
+export interface GridComponent extends StatelessComponent<GridProps> {
+    Item?: typeof GridItem;
+}
+
+export const Grid: GridComponent = ({children, name, subgrid }) => {
+    const gridName = subgrid ? "subgrid" : name;
+    const gridClass = classnames("grid", `grid--${gridName}`);
     return (
         <div className={gridClass}>
             {children}
         </div>
     );
 };
+
+Grid.Item = GridItem;

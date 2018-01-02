@@ -1,16 +1,19 @@
 import * as React from "react";
 import {StatelessComponent} from "react";
+import {merge} from "ramda";
 import "./hero.scss";
 
 interface HeroProps {
+    style?: Object;
     image: {
-        sizes: any
+        src: string;
+        sizes: any;
     };
 }
 
-export const Hero: StatelessComponent<HeroProps> = ({image}) => {
+export const Hero: StatelessComponent<HeroProps> = ({image, style}) => {
     return (
-        <section className="hero" style={{backgroundImage: `url(${image.src})`, height: 400}}>
+        <section className="hero" style={merge(style, {backgroundImage: `url(${image.src})`, height: 400})}>
             <div className="hero__interior">
                 <h1>With Great Design, <br/>
                 Comes Great Reponsibility.</h1>

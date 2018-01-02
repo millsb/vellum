@@ -9,6 +9,7 @@
   justify-content: space-between;
   list-style: none;
   padding-left: 0;
+  margin-bottom: 8px;
 }
 
 .horz-nav__item {
@@ -21,8 +22,8 @@
     color: color(gray, light);
 
     &:hover {
-      border-top-color: rebeccapurple;
-      color: color(black);
+      border-top-color: color(blue);
+      color: color(blue);
     }
   }
 

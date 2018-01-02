@@ -6,7 +6,7 @@ import GlobalHeader from "../library/GlobalHeader/GlobalHeader";
 import "./_base.scss";
 import {MainNavYamlConnection} from "../graphql-types";
 import {NavItems} from "../library/HorzNav/HorzNav";
-import {Grid, GridItem} from "../library/Grid";
+import {Grid} from "../library/Grid";
 
 interface TemplateWrapperProps {
     data: {
@@ -19,20 +19,18 @@ const TemplateWrapper: StatelessComponent<TemplateWrapperProps> = ({data, childr
 
     return (
         <div className="wrapper">
-            <Grid name={"page-grid"}>
+            <Grid name={"standard"}>
                 <Helmet
                     title="Gatsby Default Starter"
                     meta={[
                         {name: "description", content: "Sample"},
                         {name: "keywords", content: "sample, something"},
                     ]}>
-
                     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Patua+One|Roboto+Condensed:400,700" rel="stylesheet"/>
                 </Helmet>
-                <GridItem column={"main"}>
+                <Grid.Item area={"header"}>
                     <GlobalHeader siteTitle="Vellum" navItems={navItems} />
-                </GridItem>
-
+                </Grid.Item>
                 {children()}
             </Grid>
         </div>
@@ -52,5 +50,5 @@ export const query = graphql`
             }
         }
     }
-`
+`;
 
