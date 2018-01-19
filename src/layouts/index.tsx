@@ -1,21 +1,24 @@
 import * as React from "react";
 import {StatelessComponent} from "react";
 import Helmet from "react-helmet";
-import GlobalHeader from "../library/GlobalHeader/GlobalHeader";
 
 import "./_base.scss";
 import {MainNavYamlConnection} from "../graphql-types";
-import {NavItems} from "../library/HorzNav/HorzNav";
 import {Grid} from "../library/Grid";
+import {path, map} from "ramda";
+import GridItem from "../library/Grid/GridItem";
+import {NavItem} from "../interfaces/Navigation";
+import GlobalHeader from "../library/GlobalHeader/GlobalHeader";
 
 interface TemplateWrapperProps {
-    data: {
+    data?: {
         allMainNavYaml: MainNavYamlConnection
     };
     children: any;
 }
 const TemplateWrapper: StatelessComponent<TemplateWrapperProps> = ({data, children}) => {
-    const navItems: NavItems = data.allMainNavYaml.edges.map( (edge) => edge.node);
+    const edges = path(["allMainNavYaml", "edges"], data);
+    const navItems: NavItem[] = map((edge) => edge.node, edges);
 
     return (
         <div className="wrapper">
@@ -26,11 +29,12 @@ const TemplateWrapper: StatelessComponent<TemplateWrapperProps> = ({data, childr
                         {name: "description", content: "Sample"},
                         {name: "keywords", content: "sample, something"},
                     ]}>
-                    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Patua+One|Roboto+Condensed:400,700" rel="stylesheet"/>
+                    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Open+Sans:300,400,600|Merriweather:300,400,600"
+                          rel="stylesheet"/>
                 </Helmet>
-                <Grid.Item area={"header"}>
+                <GridItem area={"header"}>
                     <GlobalHeader siteTitle="Vellum" navItems={navItems} />
-                </Grid.Item>
+                </GridItem>
                 {children()}
             </Grid>
         </div>

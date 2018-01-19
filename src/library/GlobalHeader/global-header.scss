@@ -4,26 +4,11 @@
 .global-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  z-index: 1;
-  position: relative;
+  align-items: baseline;
+  padding-top: 18px;
 
   a {
     text-decoration: none;
-  }
-
-  .horz-nav {
-    background-color: rgba(color(purple, dark), 0.8);
-    padding: 4px 32px;
-    a {
-      color: color(white);
-    }
-  }
-
-  .horz-nav__title {
-    a {
-      color: color(white);
-    }
   }
 }
 
@@ -31,12 +16,9 @@
 }
 
 .global-header__title {
-  font-size: font-size(heading);
-  font-family: font-family(heading);
-  font-weight: 400;
-  color: color(white);
-  border: 1px solid color(white);
-  padding: 8px 18px;
+  font-family: font-family(base);
+  font-size: font-size(subheading);
+  font-weight: 300;
 }
 
 .global-header__nav {

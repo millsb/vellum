@@ -13,5 +13,16 @@ a {
 }
 
 .wrapper {
-  border-top: 5px solid color(gray, lighter);
+}
+
+h1 {
+  font-family: font-family(display);
+}
+
+h2 {
+  font-family: font-family(heading);
+}
+
+.body-content {
+  font-family: font-family(body);
 }

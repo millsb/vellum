@@ -17,9 +17,4 @@ describe("GridItem", () => {
         const gridItem = render(<GridItem column={"1/3"} row={"2/2"}><div style={{color: "blue"}}/></GridItem>);
         expect(gridItem).toMatchSnapshot();
     });
-
-    it("should assign fake subgrid styles when subgrid is selected", () => {
-        const gridItem = render(<GridItem subgrid={true}><div/></GridItem>);
-        expect(gridItem).toMatchSnapshot();
-    });
 });

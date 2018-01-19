@@ -1,13 +1,14 @@
 import * as React from "react";
 import {StatelessComponent} from "react";
 import Link from "gatsby-link";
-import {HorzNav, NavItems} from "../HorzNav/HorzNav";
+import {MainNav} from "../MainNav";
 import "./global-header.scss";
+import {NavItem} from "../../interfaces/Navigation";
 
 export interface GlobalHeaderProps {
     style?: object;
     siteTitle: string;
-    navItems: NavItems;
+    navItems: NavItem[];
 }
 
 const GlobalHeader: StatelessComponent<GlobalHeaderProps> = ({siteTitle, navItems, style}) => {
@@ -19,7 +20,7 @@ const GlobalHeader: StatelessComponent<GlobalHeaderProps> = ({siteTitle, navItem
                 </Link>
             </div>
             <div className="global-header__nav">
-                <HorzNav items={navItems}/>
+                <MainNav items={navItems}/>
             </div>
         </header>
     );

@@ -1,0 +1,13 @@
+- content:
+  - label: Voice and Tone
+    href: "/content/voice-and-tone"
+    icon: face
+  - label: Editorial Style
+    href: "/content/editorial"
+    icon: face
+  - label: Naming
+    href: "/content/naming"
+    icon: face
+  - label: Captions and Descriptions
+    href: "/content/captions-and-descriptions"
+    icon: face

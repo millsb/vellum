@@ -1,23 +1,25 @@
 import * as React from "react";
 import {StatelessComponent} from "react";
-import {merge} from "ramda";
+import {merge, cond} from "ramda";
 import "./hero.scss";
+import {Maybe} from "sanctuary";
 
 interface HeroProps {
     style?: Object;
-    image: {
+    title?: string;
+    backgroundColor?: string;
+    image?: {
         src: string;
         sizes: any;
     };
 }
 
-export const Hero: StatelessComponent<HeroProps> = ({image, style}) => {
+export const Hero: StatelessComponent<HeroProps> = ({ backgroundColor, image, style, title}) => {
+    const styles = merge(style, { backgroundColor: backgroundColor });
     return (
-        <section className="hero" style={merge(style, {backgroundImage: `url(${image.src})`, height: 400})}>
+        <section className="hero" style={styles}>
             <div className="hero__interior">
-                <h1>With Great Design, <br/>
-                Comes Great Reponsibility.</h1>
-                <h2>Build, maintain and document a living design system for the web.</h2>
+                <h1>{title}</h1>
             </div>
         </section>
     );

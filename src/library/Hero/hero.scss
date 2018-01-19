@@ -2,43 +2,14 @@
 @import "../../styles/type";
 
 .hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  background-repeat: no-repeat;
-  box-shadow: inset 1px 1px 32px color(purple, dark);
 }
 
 .hero__interior {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   h1 {
-    color: color(white);
-    text-align: left;
     line-height: 1.2;
-    font-weight: 400;
     font-family: font-family(display);
     font-size: font-size(display, hero);
-    background-color: rgba(color(purple, dark), 0.8);
-    padding: 8px 64px 8px 64px;
-    margin: 0;
-  }
-
-  h2 {
-    color: color(white);
-    text-align: left;
-    line-height: 1.2;
-    font-weight: 400;
-    font-family: font-family(heading);
-    font-size: font-size(display, heading);
-    background-color: rgba(color(purple, dark), 0.8);
-    padding: 32px 32px 16px 16px;
-    margin: 0;
-    margin-left: 64px;
-
   }
 }
 

@@ -2,17 +2,21 @@
   display: grid;
   grid-gap: 20px;
   grid-template-columns: [bleed-start] minmax(0, 1fr)
-                         minmax(320px, 1140px)
+                         minmax(320px, 1fr)
+                         minmax(320px, 1fr)
+                         minmax(320px, 1fr)
                          minmax(0, 1fr)
                          [bleed-end];
 
-  grid-template-rows: 400px
-                      minmax(500px, auto)
+  grid-template-rows: 60px
+                      auto
+                      auto
                       180px;
 
-  grid-template-areas:  ". header ."
-                        ". main  ."
-                        ". footer .";
+  grid-template-areas:  ". header header header . "
+                        ". hero hero hero ."
+                        ". main main main ."
+                        ". footer footer footer .";
 
 }
 

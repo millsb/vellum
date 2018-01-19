@@ -83,7 +83,9 @@
       "tsx",
       "js"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "collectCoverage": true,
     "coverageReporters": [
       "lcov",

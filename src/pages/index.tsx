@@ -1,29 +1,21 @@
-import {Grid} from "../library/Grid";
 import * as React from "react";
 import {StatelessComponent} from "react";
-import {Hero} from "../library/Hero/Hero";
+import SiteCover from "../library/SiteCover/SiteCover";
+import {path} from "ramda";
+import GridItem from "../library/Grid/GridItem";
 
 export interface IndexPageProps {
     data: {
         heroImage?: any;
+        pageNav?: any;
     };
 }
 
 const IndexPage: StatelessComponent<IndexPageProps> = ({data}) => {
+    const image = path<string>(["coverImage", "sizes", "src"], data);
     return (
         <React.Fragment>
-            <Grid.Item column={"bleed"} row={"header"}>
-                <Hero image={data.heroImage.sizes}/>
-            </Grid.Item>
-            <Grid.Item column={"bleed"} row={"main"}>
-                <div style={{backgroundColor: "rebeccaPurple"}}>
-                    <Grid subgrid>
-                        <Grid.Item area={"main"}>
-                            <h1>Foo</h1>
-                        </Grid.Item>
-                    </Grid>
-                </div>
-            </Grid.Item>
+            <SiteCover image={image} title={"Design and Build Responsibly."} />
         </React.Fragment>
     );
 };
@@ -32,20 +24,22 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
-    heroImage: imageSharp(id: { regex: "/purple-neon.jpg/" }) {
+    pageNav: pageNavYaml(id: {regex:"/page-nav.yaml/"}) {
+      content {
+        label
+        href
+        icon
+      }
+    }
+    coverImage: imageSharp(id: { regex: "/mac-wall.jpg/" }) {
       sizes(
         maxWidth: 1440
-        maxHeight: 400
-        cropFocus: CENTER
+        maxHeight: 600
+        cropFocus: SOUTHEAST
         toFormat: PNG
-        duotone: {
-           highlight: "#f00e2e",
-           shadow: "#663399",
-           opacity: 65 
-        }
       ) {
         ... GatsbyImageSharpSizes_tracedSVG
       }
     }
-  } 
+  }
 `;
