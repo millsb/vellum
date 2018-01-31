@@ -1,4 +1,7 @@
 const path = require("path");
+const crypto = require("crypto");
+const docgen = require("react-docgen-typescript").withDefaultConfig();
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -23,4 +26,35 @@ exports.modifyWebpackConfig = ({config, stage}) => {
             ]
         });
     }
+};
+
+exports.onCreateNode = async ({node, boundActionCreators, loadNodeContent}) => {
+    // const {createNode, createParentChildLink} = boundActionCreators;
+    //
+    // if (node.extension !== "tsx") {
+    //     return;
+    // }
+    //
+    // const componentDoc = docgen.parse(node.absolutePath);
+    // const contentDigest = crypto
+    //     .createHash("md5")
+    //     .update(JSON.stringify(componentDoc))
+    //     .digest("hex");
+    //
+    //
+    // const componentNode = {
+    //     doc: JSON.stringify(componentDoc),
+    //     id: `${node.id} >>> Component`,
+    //     children: [],
+    //     parent: node.id,
+    //     internal: {
+    //         contentDigest,
+    //         type: "Component"
+    //     }
+    // };
+    //
+    //
+    // createNode(componentNode);
+    // createParentChildLink({parent: node, child: componentNode});
+
 };

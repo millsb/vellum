@@ -1,17 +1,25 @@
 import * as React from "react";
-import {StatelessComponent} from "react";
-import Link from "gatsby-link";
+import PropTypes from "prop-types";
+import Link from "../../vellum/VellumLink";
 import {MainNav} from "../MainNav";
 import "./global-header.scss";
-import {NavItem} from "../../interfaces/Navigation";
 
-export interface GlobalHeaderProps {
-    style?: object;
-    siteTitle: string;
-    navItems: NavItem[];
-}
+const propTypes = {
+    /** A string of inline styles */
+    style: PropTypes.string,
+    /** Title of the site */
+    siteTitle: PropTypes.string.isRequired,
+    navItems: PropTypes.array
+};
 
-const GlobalHeader: StatelessComponent<GlobalHeaderProps> = ({siteTitle, navItems, style}) => {
+const defaultProps  = {
+    siteTitle: "Site Title"
+};
+
+/*
+ * Website Global Header
+ */
+const GlobalHeader = ({siteTitle, navItems, style}) => {
     return (
         <header className={"global-header"} style={style}>
             <div className="global-header__brand">
@@ -25,5 +33,8 @@ const GlobalHeader: StatelessComponent<GlobalHeaderProps> = ({siteTitle, navItem
         </header>
     );
 };
+
+GlobalHeader.propTypes = propTypes;
+GlobalHeader.defaultProps = defaultProps;
 
 export default GlobalHeader;
