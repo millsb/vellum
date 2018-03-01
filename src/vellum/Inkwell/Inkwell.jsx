@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SeashellProps from "./SeashellProps";
-import SeashellCode from "./SeashellCode";
+import InkwellProps from "./InkwellProps";
+import InkwellCode from "./InkwellCode";
 
-import "./seashell.scss";
+import "./inkwell.scss";
 
-export default class Seashell extends React.Component {
+// define global React so it will work with eval();
+window.React = React;
+
+export default class Inkwell extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +19,6 @@ export default class Seashell extends React.Component {
 
     static propTypes = {
         meta: PropTypes.object,
-        childProps: PropTypes.object
     };
 
     onNewProps = (props) => {
@@ -29,13 +31,17 @@ export default class Seashell extends React.Component {
 
     render() {
         return (
-            <section className="seashell">
-                {this.state.nodeToRender}
-                <SeashellCode component={this.state.nodeToRender} />
-                <SeashellProps
+            <section className="inkwell">
+                <div style={{display: "flex", justifyContent: "center", margin: "30px 0"}}>
+                    {this.state.nodeToRender}
+                </div>
+                <InkwellCode
+                    component={this.state.nodeToRender} />
+                <p>{this.props.meta.docblock}</p>
+                <InkwellProps
                     component={this.state.nodeToRender}
                     props={this.props.meta.props}
-                    onPropChange={this.onNewProps}/>
+                    onPropChange={this.onNewProps} />
             </section>
         )
     }

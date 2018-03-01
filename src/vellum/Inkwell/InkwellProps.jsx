@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import {find, propEq, assoc} from "ramda";
 
-import "./seashell-props.scss";
+import "./inkwell-props.scss";
 
-export default class SeashellProps extends React.Component {
+export default class InkwellProps extends React.Component {
     static propTypes = {
         component: PropTypes.node.isRequired,
         props: PropTypes.arrayOf(PropTypes.object).isRequired,
-        onPropChange: PropTypes.function
+        onPropChange: PropTypes.func.isRequired
     };
 
     constructor(props) {
@@ -42,11 +42,9 @@ export default class SeashellProps extends React.Component {
     };
 
     render() {
-        console.log(this.props.component);
-        console.log(this.props.props);
         return (
-            <section className="seashell-props">
-                <div className="seashell-props__headings">
+            <section className="inkwell-props">
+                <div className="inkwell-props__headings">
                     <span>Property</span>
                     <span>Description</span>
                     <span>Type</span>
@@ -55,7 +53,7 @@ export default class SeashellProps extends React.Component {
                 </div>
                 {this.props.props.map( (prop, i) => {
                     return (
-                        <div className="seashell-props__row" key={i}>
+                        <div className="inkwell-props__row" key={i}>
                             <span>{prop.name}</span>
                             <span>{prop.docblock}</span>
                             <span>{prop.type.name}</span>

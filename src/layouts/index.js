@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 
 import "./_base.scss";
 import {path, map} from "ramda";
-import GlobalHeader from "../library/GlobalHeader/GlobalHeader";
+import GlobalHeader from "../components/GlobalHeader/GlobalHeader";
 
 const TemplateWrapper = ({data, children}) => {
     const edges = path(["allMainNavYaml", "edges"], data);
@@ -20,8 +20,10 @@ const TemplateWrapper = ({data, children}) => {
                 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Open+Sans:300,400,600|Merriweather:300,400,600|Source+Code+Pro:400"
                       rel="stylesheet"/>
             </Helmet>
-            <GlobalHeader siteTitle="Vellum" navItems={navItems} />
-            {children()}
+            <div style={{maxWidth: "940px", margin: "0 auto"}}>
+                <GlobalHeader siteTitle="Vellum" navItems={navItems} />
+                {children()}
+            </div>
         </div>
     );
 };

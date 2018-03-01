@@ -12,23 +12,25 @@ import "codemirror/mode/jsx/jsx";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 
-import "./seashell-code.scss";
+import "./inkwell-code.scss";
 
-export default class SeashellCode extends React.Component {
+export default class InkwellCode extends React.Component {
     static props = {
-        component: PropTypes.node
+        component: PropTypes.node.isRequired,
+        onCodeChange: PropTypes.func.isRequired
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            codeFormat: "xml"
+            codeFormat: "xml",
         }
     }
 
     onFormatChange(event) {
         this.setState({ codeFormat: event.target.value});
     }
+
 
     render() {
         const htmlFormatOptions = {
@@ -42,18 +44,18 @@ export default class SeashellCode extends React.Component {
         const code = format === "jsx" ? asJsx : asHtml;
 
         return (
-            <section className="seashell-code">
-                <aside className="seashell-code__controls">
+            <section className="inkwell-code">
+                <aside className="inkwell-code__controls">
                     <label className={classnames({"is-active": format === "xml"})}>
                         HTML
-                        <input type="radio" value="xml" name="seashell-format"
+                        <input type="radio" value="xml" name="inkwell-format"
                                checked={format === "xml"}
                                onChange={event => this.onFormatChange(event)}>
                         </input>
                     </label>
                     <label className={classnames({"is-active": format === "jsx"})}>
                         JSX
-                        <input type="radio" value="jsx" name="seashell-format"
+                        <input type="radio" value="jsx" name="inkwell-format"
                                checked={format === "jsx"}
                                onChange={event => this.onFormatChange(event)}>
                         </input>
@@ -64,10 +66,10 @@ export default class SeashellCode extends React.Component {
                         mode: format,
                         theme: "material",
                         lineNumbers: true,
+                        lineWrapping: true,
                         readOnly: format === "xml"
                     }}
                     value={code}
-                    onChange={ () => null }
                 />
             </section>
         )

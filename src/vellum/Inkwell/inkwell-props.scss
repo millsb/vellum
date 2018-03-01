@@ -1,13 +1,13 @@
 @import "../../styles/type";
 @import "../../styles/colors";
 
-.seashell-props {
+.inkwell-props {
   display: table;
   width: 100%;
 }
 
-.seashell-props__headings,
-.seashell-props__row {
+.inkwell-props__headings,
+.inkwell-props__row {
   display: table-row;
   span {
     display: table-cell;
@@ -16,13 +16,13 @@
   }
 }
 
-.seashell-props__headings {
+.inkwell-props__headings {
   span {
     font-weight: 700;
   }
 }
 
-.seashell-props__row {
+.inkwell-props__row {
   display: table-row;
   font-size: 0.85rem;
 

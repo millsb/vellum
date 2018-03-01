@@ -4,19 +4,12 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@types/babel-types": "^7.0.0",
-    "@types/babylon": "^6.16.2",
-    "@types/classnames": "^2.2.3",
-    "@types/enzyme": "^3.1.6",
-    "@types/enzyme-to-json": "^1.5.0",
-    "@types/graphql": "^0.11.7",
-    "@types/jest": "^22.0.0",
-    "@types/ramda": "^0.25.12",
-    "@types/react-helmet": "^5.0.3",
-    "@types/react-test-renderer": "^16.0.0",
+    "@babel/traverse": "^7.0.0-beta.40",
+    "@babel/types": "^7.0.0-beta.40",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-types": "^6.26.0",
     "babylon": "^7.0.0-beta.38",
+    "case": "^1.5.4",
     "change-case": "^3.0.1",
     "classnames": "^2.2.5",
     "codemirror": "^5.33.0",
@@ -37,20 +30,21 @@
     "gatsby-transformer-remark": "^1.7.25",
     "gatsby-transformer-sharp": "^1.6.16",
     "gatsby-transformer-yaml": "^1.5.14",
+    "html-sketchapp": "github:brainly/html-sketchapp#74f56a720ae4d6629aa303b6b1cdb9b8e5daa5d1",
     "jest": "^22.0.4",
     "jest-enzyme": "^4.0.2",
     "js-beautify": "^1.7.5",
     "plop": "^1.9.1",
+    "puppeteer": "^1.1.1",
     "ramda": "^0.25.0",
     "react": "16",
     "react-codemirror2": "^3.0.7",
+    "react-docgen": "^2.20.0",
     "react-docgen-typescript": "^1.2.2",
     "react-dom": "16",
     "react-element-to-jsx-string": "^13.1.0",
     "react-test-renderer": "^16.2.0",
-    "ts-jest": "^22.0.0",
-    "ts-loader": "^3.2.0",
-    "typescript": "^2.6.2"
+    "recast": "^0.13.2"
   },
   "keywords": [
     "gatsby"
@@ -67,11 +61,14 @@
   "devDependencies": {
     "@types/prop-types": "^15.5.2",
     "@types/react": "^16.0.31",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "graphql-code-generator": "^0.8.14",
     "modularscale-sass": "^3.0.4",
     "prettier": "^1.9.2",
+    "regenerator-runtime": "^0.11.1",
     "tslint": "^5.8.0",
     "tslint-react": "^3.2.0"
   },
@@ -80,10 +77,7 @@
       "__LINK_PREFIX__": "",
       "__PREFIX_LINKS__": ""
     },
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|jsx|js)$",
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/templates/",
@@ -92,7 +86,8 @@
     "moduleFileExtensions": [
       "ts",
       "tsx",
-      "js"
+      "js",
+      "jsx"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
