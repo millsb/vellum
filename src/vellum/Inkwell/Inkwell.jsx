@@ -5,9 +5,6 @@ import InkwellCode from "./InkwellCode";
 
 import "./inkwell.scss";
 
-// define global React so it will work with eval();
-window.React = React;
-
 export default class Inkwell extends React.Component {
     constructor(props) {
         super(props);

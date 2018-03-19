@@ -13,7 +13,7 @@ export default class InkwellProps extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = props.props;
+        this.state = { props: props.props || null }
     };
 
     propEditorForString(propName, value) {

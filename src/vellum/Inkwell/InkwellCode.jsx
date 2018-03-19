@@ -7,8 +7,11 @@ import {UnControlled as CodeMirror} from "react-codemirror2";
 import  {html as htmlBeautify} from "js-beautify";
 import toJsxString from "react-element-to-jsx-string";
 
-import "codemirror/mode/xml/xml";
-import "codemirror/mode/jsx/jsx";
+if (typeof navigator !== "undefined") {
+    require("codemirror/mode/xml/xml");
+    require("codemirror/mode/jsx/jsx");
+}
+
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 
@@ -17,7 +20,6 @@ import "./inkwell-code.scss";
 export default class InkwellCode extends React.Component {
     static props = {
         component: PropTypes.node.isRequired,
-        onCodeChange: PropTypes.func.isRequired
     };
 
     constructor(props) {
@@ -67,9 +69,10 @@ export default class InkwellCode extends React.Component {
                         theme: "material",
                         lineNumbers: true,
                         lineWrapping: true,
-                        readOnly: format === "xml"
+                        readOnly: format === "xml",
                     }}
                     value={code}
+                    onChange={() => {}}
                 />
             </section>
         )

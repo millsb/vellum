@@ -1,7 +1,7 @@
 import React from "react";
 import Inkwell from "../../vellum/Inkwell/Inkwell";
 import EventCard from "./EventCard";
-import {standardInkFields} from "../../vellum/queries";
+import "../../vellum/queries";
 
 const EventCardInk = ({data}) => {
     console.log(data);
