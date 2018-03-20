@@ -20,6 +20,7 @@ import "./inkwell-code.scss";
 export default class InkwellCode extends React.Component {
     static props = {
         component: PropTypes.node.isRequired,
+        componentName: PropTypes.string
     };
 
     constructor(props) {
@@ -42,7 +43,7 @@ export default class InkwellCode extends React.Component {
 
         const format = this.state.codeFormat;
         const asHtml = htmlBeautify(renderToStaticMarkup(this.props.component), htmlFormatOptions);
-        const asJsx = toJsxString(this.props.component);
+        const asJsx = toJsxString(this.props.component, { displayName: () => this.props.componentName });
         const code = format === "jsx" ? asJsx : asHtml;
 
         return (

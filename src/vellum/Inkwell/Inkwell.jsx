@@ -8,6 +8,7 @@ import "./inkwell.scss";
 export default class Inkwell extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props.meta);
         this.state = {
             nodeToRender: props.children,
             propsToRender: props.meta.props
@@ -33,6 +34,7 @@ export default class Inkwell extends React.Component {
                     {this.state.nodeToRender}
                 </div>
                 <InkwellCode
+                    componentName={this.props.meta.displayName}
                     component={this.state.nodeToRender} />
                 <p>{this.props.meta.docblock}</p>
                 <InkwellProps

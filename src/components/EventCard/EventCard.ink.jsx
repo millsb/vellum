@@ -22,7 +22,6 @@ const EventCardInk = ({data}) => {
         <div dangerouslySetInnerHTML={{__html: docs.html}}/>
     </section>);
 };
-
 export default EventCardInk;
 
 export const query = graphql`
