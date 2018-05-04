@@ -23,14 +23,3 @@ const EventCardInk = ({data}) => {
     </section>);
 };
 export default EventCardInk;
-
-export const query = graphql`
-query InkQuery {
-    componentMetadata(id: { regex: "/EventCard.jsx/" }) {
-        ...standardInkFields
-    }
-    docs: markdownRemark(id: { regex: "/EventCard/" }) {
-       html
-    }
-}
-`;

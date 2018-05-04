@@ -6,7 +6,7 @@ import "./inkwell-props.scss";
 
 export default class InkwellProps extends React.Component {
     static propTypes = {
-        component: PropTypes.node.isRequired,
+        comp: PropTypes.node.isRequired,
         props: PropTypes.arrayOf(PropTypes.object).isRequired,
         onPropChange: PropTypes.func.isRequired
     };
@@ -25,7 +25,7 @@ export default class InkwellProps extends React.Component {
     };
 
     propCurrentValue(propName) {
-        return this.props.component.props[propName];
+        return this.props.comp.props[propName];
     }
 
     propEditor(propName, value) {
@@ -37,7 +37,7 @@ export default class InkwellProps extends React.Component {
 
     handlePropChange(propName, event) {
         const newVal = event.target.value;
-        const newProps = assoc(propName, newVal, this.props.component.props);
+        const newProps = assoc(propName, newVal, this.props.comp.props);
         this.props.onPropChange(newProps);
     };
 
@@ -66,3 +66,4 @@ export default class InkwellProps extends React.Component {
         )
     }
 }
+

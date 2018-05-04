@@ -23,7 +23,6 @@
     "gatsby-plugin-react-next": "^1.0.7",
     "gatsby-plugin-sass": "^1.0.15",
     "gatsby-plugin-sharp": "^1.6.24",
-    "gatsby-plugin-typescript": "^1.4.12",
     "gatsby-source-filesystem": "^1.5.11",
     "gatsby-transformer-json": "^1.0.14",
     "gatsby-transformer-react-docgen": "^1.0.12",
@@ -40,7 +39,6 @@
     "react": "16",
     "react-codemirror2": "^3.0.7",
     "react-docgen": "^2.20.0",
-    "react-docgen-typescript": "^1.2.2",
     "react-dom": "16",
     "react-element-to-jsx-string": "^13.1.0",
     "react-test-renderer": "^16.2.0",
@@ -55,7 +53,6 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "graphql-types": "gql-gen --url http://localhost:8000/___graphql --template typescript --out ./src/graphql-types.d.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -67,7 +64,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "graphql-code-generator": "^0.8.14",
     "modularscale-sass": "^3.0.4",
-    "prettier": "^1.9.2",
+    "prettier": "^1.12.1",
     "regenerator-runtime": "^0.11.1",
     "tslint": "^5.8.0",
     "tslint-react": "^3.2.0"

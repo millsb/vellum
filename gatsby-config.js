@@ -16,7 +16,6 @@ module.exports = {
                 path: "./src/data"
             }
         },
-        `gatsby-plugin-typescript`,
         `gatsby-plugin-sass`,
         `gatsby-plugin-react-helmet`,
         `gatsby-transformer-remark`,

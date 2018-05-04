@@ -6,6 +6,8 @@
   justify-content: space-between;
   align-items: baseline;
   padding-top: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid color(gray, lighter);
 
   a {
     text-decoration: none;
@@ -13,6 +15,8 @@
 }
 
 .global-header__brand {
+  width: 32.5%;
+  margin-right: 20px;
 }
 
 .global-header__title {
@@ -23,5 +27,4 @@
 
 .global-header__nav {
   flex-grow: 1;
-  max-width: 50%;
 }
