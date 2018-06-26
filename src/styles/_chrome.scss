@@ -1,0 +1,14 @@
+@import "_colors.scss";
+
+$link-state-data: (
+  nav: (
+    default:  color(gray, light),
+    hover: color(blue),
+    transition: color 0.25s ease-in,
+    decoration: none
+  )
+);
+
+@function link-state($state, $value: base) {
+  @return map-get(map-get($link-state-data, $state), $value);
+}

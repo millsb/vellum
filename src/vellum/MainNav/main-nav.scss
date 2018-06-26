@@ -1,5 +1,6 @@
 @import "../../styles/type";
 @import "../../styles/colors";
+@import "../../styles/chrome";
 
 .main-nav {
 }
@@ -24,12 +25,12 @@
   a {
     border-top: 1px solid transparent;
     padding-top: 4px;
-    transition: border-top-color 0.25s ease-in, color 0.25s ease-in;
-    color: color(gray, light);
+    transition: border-top-color 0.25s ease-in, link-state(nav, transition);
+    color: link-state(nav, default);
 
     &:hover {
       border-top-color: color(blue);
-      color: color(blue);
+      color: link-state(nav, hover);
     }
   }
 }

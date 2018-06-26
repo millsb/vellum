@@ -1,3 +1,35 @@
-.side-nav {
+@import "../../styles/chrome";
 
+.tree-nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul.depth-1 {
+    margin-left: 12px;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  li.depth-0 {
+    font-size: 16px;
+  }
+  li.depth-1 {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  a {
+    transition: link-state(nav, transition);
+    color: link-state(nav, default);
+    text-decoration: link-state(nav, decoration);
+
+    &:hover {
+      color: link-state(nav, hover);
+    }
+  }
 }
