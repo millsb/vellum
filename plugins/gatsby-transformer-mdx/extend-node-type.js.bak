@@ -1,0 +1,30 @@
+const { GraphQLString } = require("gatsby/graphql");
+const GraphQlJson = require("graphql-type-json");
+const fetchFrontmatter = require('./fetch-frontmatter');
+
+module.exports = ({ type }) => {
+  if (type.name !== `Mdx`) {
+    return {}
+  }
+
+  return {
+    frontmatter: {
+      type: GraphQlJson,
+      resolve: async (node) => {
+        const data = await fetchFrontmatter(node.internal.content)
+
+         return {
+           title: ``,
+           ...data
+         }
+       },
+    },
+    something: {
+      type: GraphQLString,
+      resolve: (node) => {
+        console.log(node);
+        return "Hello?";
+      }
+    }
+   }
+ }

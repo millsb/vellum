@@ -5,10 +5,12 @@ import TreeNav from "../vellum/TreeNav/TreeNav.jsx";
 import Link from "gatsby-link";
 import {StaticQuery} from "gatsby";
 
+
 const ComponentsPage = ({ data }) => {
   const navData = map(d => {
     const frontmatter = path(["node", "frontmatter"], d);
     const headings = path(["node", "headings"], d);
+
     const children = map(h => {
       if (h.depth === 2) {
         return {
@@ -46,8 +48,8 @@ const ComponentsPage = ({ data }) => {
 export default props => (
   <StaticQuery query={
     graphql`
-      query allMarkdownRemark {
-        navData: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/components/" } }) {
+      query allMdx {
+        navData: allMdx(filter: { absolutePath: { regex: "/components/" } }) {
           edges {
             node {
               frontmatter {

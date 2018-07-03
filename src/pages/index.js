@@ -6,6 +6,7 @@ import Layout from "../components/layout";
 
 const IndexPage = ({data}) => {
 
+
     return (
       <Layout>
         <section className="grid">

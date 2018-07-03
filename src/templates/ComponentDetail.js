@@ -1,38 +1,27 @@
 import React from "react";
 import "../vellum/queries";
 import { StaticQuery } from "gatsby";
+import Inkwell from "../vellum/Inkwell/Inkwell";
 
-const ComponentDetail = ({ data }) => {
-  console.log(data);
-  const displayName = data.targetComponent.edges[0].node.displayName;
-  return <p>{displayName}</p>;
+const ComponentDetail = ({ data, pathContext }) => {
+  return (
+    <Inkwell meta={data.componentMetadata}>
+    </Inkwell>
+  )
 };
 
 export default ComponentDetail;
 
 export const query = graphql`
   query ComponentDetail($componentName: String!, $markdownFile: String!) {
-    doc: allMarkdownRemark(
-      filter: { fileAbsolutePath: { eq: $markdownFile } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            urlPath
-            title
-          }
-          html
-        }
+    doc: mdx(absolutePath: { eq: $markdownFile }) {
+      frontmatter {
+        urlPath
+        title
       }
     }
-    targetComponent: allComponentMetadata(
-      filter: { displayName: { eq: $componentName } }
-    ) {
-      edges {
-        node {
-          displayName
-        }
-      }
+    componentMetadata(displayName: { eq: $componentName }) {
+      ...standardInkFields
     }
   }
 `;

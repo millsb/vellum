@@ -18,9 +18,9 @@ module.exports = {
     },
     "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
-    "gatsby-transformer-remark",
     "gatsby-transformer-json",
     "gatsby-transformer-sharp",
+    "gatsby-transformer-mdx",
     "gatsby-transformer-react-docgen",
     "gatsby-plugin-sharp"
   ]

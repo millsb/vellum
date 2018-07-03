@@ -6,7 +6,11 @@
   "dependencies": {
     "@babel/preset-env": "^7.0.0-beta.51",
     "@babel/preset-react": "^7.0.0-beta.51",
+    "@mdx-js/loader": "^0.12.0",
+    "@mdx-js/mdx": "^0.12.0",
+    "babel-plugin-config-export": "^1.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "case": "^1.5.4",
     "change-case": "^3.0.1",
     "classnames": "^2.2.5",
@@ -17,6 +21,7 @@
     "gatsby": "next",
     "gatsby-image": "next",
     "gatsby-link": "next",
+    "gatsby-plugin-mdx": "^1.0.1",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "next",
     "gatsby-plugin-sharp": "next",
@@ -30,6 +35,7 @@
     "jest": "^22.0.4",
     "jest-enzyme": "^4.0.2",
     "js-beautify": "^1.7.5",
+    "loader-utils": "^1.1.0",
     "longjohn": "^0.2.12",
     "node-sass": "^4.9.0",
     "plop": "^1.9.1",
@@ -44,6 +50,7 @@
     "react-helmet": "^5.2.0",
     "react-test-renderer": "^16.2.0",
     "react-typography": "^0.16.13",
+    "reading-time": "^1.1.2",
     "typography": "^0.16.17"
   },
   "keywords": [
@@ -55,7 +62,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node $NODE_DEBUG_OPTION /usr/local/bin/gatsby develop"
   },
   "devDependencies": {
     "@types/prop-types": "^15.5.2",

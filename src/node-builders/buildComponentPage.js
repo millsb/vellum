@@ -1,22 +1,21 @@
+const fs = require("fs");
 const path = require("path");
 const Case = require("case");
 
 const buildComponentPage = (createPage, graphql) => {
-  const componentPageTemplate = path.resolve(
-    "./src/templates/ComponentDetail.js"
-  );
-
   return new Promise((resolve, reject) => {
     resolve(
       graphql(`
         {
-          allMarkdownRemark(
-            filter: { fileAbsolutePath: { regex: "/components/" } }
+          allMdx(
+            filter: { absolutePath: { regex: "/components/" } }
           ) {
             edges {
               node {
-                fileAbsolutePath
+                absolutePath
+                dir
                 frontmatter {
+                  title
                   urlPath
                   component
                 }
@@ -29,26 +28,16 @@ const buildComponentPage = (createPage, graphql) => {
           reject(result.errors);
         }
 
-        if (!result.data.allMarkdownRemark) {
+        if (!result.data || !result.data.allMdx) {
           reject(["No markdown data returned", result]);
+          return;
         }
 
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-          let inkComponent;
-
-          if (node.frontmatter && node.frontmatter.ink) {
-            inkComponent = require(node.frontmatter.ink);
-          }
-
+        result.data.allMdx.edges.forEach(({ node }) => {
           if (node.frontmatter && node.frontmatter.urlPath) {
             createPage({
               path: node.frontmatter.urlPath,
-              component: componentPageTemplate,
-              inkComponent: inkComponent,
-              context: {
-                markdownFile: node.fileAbsolutePath,
-                componentName: node.frontmatter.component,
-              }
+              component: `${node.dir}/${node.frontmatter.component}.ink.jsx`,
             });
           }
         });
