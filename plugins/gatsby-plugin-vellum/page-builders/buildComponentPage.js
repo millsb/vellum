@@ -12,11 +12,12 @@ const buildComponentPage = (createPage, graphql) => {
           ) {
             edges {
               node {
+                name
                 absolutePath
                 dir
                 frontmatter {
                   title
-                  urlPath
+                  path
                   component
                 }
               }
@@ -34,10 +35,10 @@ const buildComponentPage = (createPage, graphql) => {
         }
 
         result.data.allMdx.edges.forEach(({ node }) => {
-          if (node.frontmatter && node.frontmatter.urlPath) {
+          if (node.name && node.frontmatter) {
             createPage({
-              path: node.frontmatter.urlPath,
-              component: `${node.dir}/${node.frontmatter.component}.ink.jsx`,
+              path: node.frontmatter.path || `/components/${node.name}`,
+              component: `${node.dir}/${node.frontmatter.component}.page.jsx`,
             });
           }
         });

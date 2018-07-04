@@ -2,9 +2,8 @@ import Swatch from "../../vellum/Swatch";
 
 export const frontmatter = {
   title: "Buttons",
-  urlPath: "/components/buttons",
-  component: "Buttons",
-  shortTitle: "Buttons"
+  path: "/components/buttons",
+  component: "Buttons"
 }
 
 

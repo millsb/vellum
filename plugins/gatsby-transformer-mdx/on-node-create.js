@@ -25,6 +25,7 @@ module.exports = async ({
     id: `${node.id} >>> Mdx`,
     children: [],
     parent: node.id,
+    path: null,
     internal: {
       content,
       type: `Mdx`,

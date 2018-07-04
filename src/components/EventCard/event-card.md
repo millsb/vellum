@@ -2,7 +2,6 @@ import EventCard from "./EventCard";
 
 export const frontmatter = {
   title: "Event Card",
-  urlPath: "/components/event-card",
   component: "EventCard"
 }
 

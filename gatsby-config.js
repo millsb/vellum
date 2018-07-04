@@ -22,6 +22,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-transformer-mdx",
     "gatsby-transformer-react-docgen",
-    "gatsby-plugin-sharp"
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-vellum"
   ]
 };

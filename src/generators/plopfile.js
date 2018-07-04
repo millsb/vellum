@@ -13,7 +13,7 @@ module.exports = plop => {
                 message: 'What do you want to generate?',
                 choices: [
                     { name: "Component file", value: "component", short: "component", checked: true },
-                    { name: "Ink file", value: "ink", short: "ink", checked: true },
+                    { name: "Page file", value: "page", short: "page", checked: true },
                     { name: "SASS file", value: "sass", short: "sass", checked: true },
                     { name: "Markdown file", value: "markdown", short: "markdown", checked: true },
                     { name: "Define component using an ES6 class", value: "class", short: "class" }
@@ -45,11 +45,11 @@ module.exports = plop => {
                 });
             }
 
-            if (templateChoices.indexOf("ink") !== -1) {
+            if (templateChoices.indexOf("page") !== -1) {
                 actions.push({
                     type: 'add',
-                    path: '../components/{{pascalCase name}}/{{pascalCase name}}.ink.jsx',
-                    templateFile: 'templates/component-ink.hbs',
+                    path: '../components/{{pascalCase name}}/{{pascalCase name}}.page.jsx',
+                    templateFile: 'templates/component-page.hbs',
                     skipIfExists: true
                 });
             }

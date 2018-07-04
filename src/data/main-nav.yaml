@@ -1,12 +1,12 @@
-- label: Overview
-  href: "/overview"
-- label: Values
-  href: "#"
-- label: Content
-  href: "#"
+- label: Guides
+  href: "/guides"
+- label: Components
+  href: "/components"
 - label: Design & UX
   href: "#"
-- label: Code
+- label: Development
+  href: "#"
+- label: Resources
   href: "#"
 
 

@@ -14,15 +14,15 @@ const ComponentsPage = ({ data }) => {
     const children = map(h => {
       if (h.depth === 2) {
         return {
-          url: concat(prop("urlPath", frontmatter), `#${h.value}`),
+          url: concat(prop("path", frontmatter), `#${h.value}`),
           label: h.value
         };
       }
     }, headings);
 
     return {
-      url: prop("urlPath", frontmatter),
-      label: prop("shortTitle", frontmatter),
+      url: prop("path", frontmatter),
+      label: prop("title", frontmatter),
       children: compact(children)
     };
   }, data.navData.edges);
@@ -34,7 +34,7 @@ const ComponentsPage = ({ data }) => {
           className="tree-nav"
           data={navData}
           renders={[
-            ({ data }) => <Link to={data.url} activeClassName="is-active">{data.label}</Link>
+            ({ data }) => <Link to={data.url || "#"} activeClassName="is-active">{data.label}</Link>
           ]}
         />
       </div>
@@ -53,8 +53,8 @@ export default props => (
           edges {
             node {
               frontmatter {
-                urlPath
-                shortTitle
+                path
+                title
               }
               headings {
                 depth
